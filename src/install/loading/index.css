@@ -1,0 +1,125 @@
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.ld_active {
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    background-color: red;
+    width: 100%;
+}
+
+.box{
+    width:20px;height:20px;background-color:orange;position:absolute;border:1px solid black;border-radius:50%;
+}
+
+.loading-container {
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.loading-box {
+    position: relative;
+}
+.loading-ball {
+    /* transform: translate(50%, -50%); */
+}
+
+.loading-ball::before {
+    content:'';
+    position:absolute;
+    z-index: 3;
+    /* top: 50px; */
+    /* left: 50px; */
+    top: 0;
+    left: -25px;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(47, 58, 223);
+    border-radius: 2px;
+    transform: rotate(45deg);
+    animation: baoo .5s linear infinite;
+}
+
+@keyframes baoo {
+    0% {
+        /* top: 50px; */
+        top: 0;
+        transform: rotate(0deg);
+    }
+    20% {
+        border-radius: 2px;
+    }
+    50% {
+        /* top: 80px; */
+        top: 30px;
+        transform: rotate(45deg);
+        border-bottom-right-radius: 25px;
+    }
+    80% {
+        border-radius: 2px;
+    }
+    100% {
+        /* top: 50px; */
+        top: 0;
+        transform: rotate(90deg);
+    }
+}
+
+.loading-ball::after {
+    content: '';
+    position: absolute;
+    z-index:2;
+    top: 75px;
+    left: -15px;
+    width:44px;
+    height:3px;
+    border-radius:100%;
+    animation:shadow .5s linear infinite ;
+}
+
+@keyframes shadow {
+    0%,100%{
+        left: -21px;
+        width:47px;
+        background:rgb(47, 58, 223);
+      }
+      50%{
+        left: -24px;
+        width:53px;
+        height:7px;
+        background:rgb(50, 91, 202);
+      }
+}
+
+.loading-cover {
+    position:absolute;
+    height: 100%;
+    width:100%;
+    top: 0;
+    left: 0;
+    background-color: #599abf99;
+    z-index: 1;
+}
+
+.op {
+    animation:op .5s linear;
+    animation-iteration-count: 1;
+}
+
+@keyframes op {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
